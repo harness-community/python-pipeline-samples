@@ -1,0 +1,92 @@
+pipeline:
+  name: CI-Python-Quickstart
+  identifier: pythonhelloworld
+  projectIdentifier: krishikasingh
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: pysampleconnector
+        build: <+input>
+  stages:
+    - stage:
+        name: build test and run
+        identifier: build_test_and_run
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Code compile
+                  identifier: Code_compile
+                  spec:
+                    connectorRef: account.harnessImage
+                    image: python:3.10.6-alpine
+                    shell: Sh
+                    command: python -m compileall ./
+              - step:
+                  type: Run
+                  name: Create image
+                  identifier: Create_image
+                  spec:
+                    connectorRef: account.harnessImage
+                    image: alpine
+                    shell: Sh
+                    command: |-
+                      touch pythondockerfile
+                      cat > pythondockerfile <<- EOM
+                      FROM python:3.10.6-alpine
+                      WORKDIR /py-sample-proj
+                      ADD . /py-sample-proj
+                      RUN pip install -r requirements.txt
+                      CMD ["python" , "app.py"]
+                      EOM
+                      cat pythondockerfile
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push an image to docker registry
+                  identifier: Build_and_Push_an_image_to_docker_registry
+                  spec:
+                    connectorRef: <+input>
+                    repo: <+input>
+                    tags:
+                      - latest
+          infrastructure:
+            type: KubernetesHosted
+            spec:
+              identifier: k8s-hosted-infra
+    - stage:
+        name: Integration test
+        identifier: Integration_test
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            useFromStage: build_test_and_run
+          execution:
+            steps:
+              - step:
+                  type: Background
+                  name: "python server "
+                  identifier: python_server
+                  spec:
+                    connectorRef: <+input>
+                    image: <+input>
+                    shell: Sh
+                  description: "server connection "
+                  failureStrategies: []
+              - step:
+                  type: Run
+                  name: "test connection to server "
+                  identifier: test_connection_to_server
+                  spec:
+                    connectorRef: <+input>
+                    image: curlimages/curl:7.73.0
+                    shell: Sh
+                    command: |-
+                      sleep 10
+                      curl localhost:5000
