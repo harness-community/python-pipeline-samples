@@ -1,0 +1,92 @@
+pipeline:
+  name: ci-quick
+  identifier: ciquick
+  projectIdentifier: krishikasingh
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: pysampleconn
+        build: <+input>
+  stages:
+    - stage:
+        name: build test and run
+        identifier: build_test_and_run
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesHosted
+            spec:
+              identifier: k8s-hosted-infra
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: code compile
+                  identifier: code_compile
+                  spec:
+                    connectorRef: docker_Quickstart
+                    image: krishi0408/pythonsample
+                    shell: Sh
+                    command: |-
+                      python3 -m venv venv
+                      python -m compileall ./
+              - step:
+                  type: Run
+                  name: "create image "
+                  identifier: create_image
+                  spec:
+                    connectorRef: docker_Quickstart
+                    image: alpine
+                    shell: Sh
+                    command: |-
+                      touch pythondockerfile
+                      cat > pythondockerfile <<- EOM
+                      FROM python:3.10.6-alpine
+                      WORKDIR /py-sample-proj
+                      ADD . /py-sample-proj
+                      RUN pip install -r requirements.txt
+                      CMD ["python" , "app.py"]
+                      EOM
+                      cat pythondockerfile
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push an image to docker registry
+                  identifier: Build_and_Push_an_image_to_docker_registry
+                  spec:
+                    connectorRef: docker_Quickstart
+                    repo: krishi0408/pythonsample
+                    tags:
+                      - latest
+    - stage:
+        name: integration test
+        identifier: integration_test
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            useFromStage: build_test_and_run
+          execution:
+            steps:
+              - step:
+                  type: Background
+                  name: python server
+                  identifier: python_server
+                  spec:
+                    connectorRef: docker_Quickstart
+                    image: krishi0408/pythonsample
+                    shell: Sh
+              - step:
+                  type: Run
+                  name: test conn to serv
+                  identifier: test_conn_to_serv
+                  spec:
+                    connectorRef: docker_Quickstart
+                    image: curlimages/curl:7.73.0
+                    shell: Sh
+                    command: |-
+                      sleep 10
+                      curl localhost:5000
