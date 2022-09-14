@@ -1,17 +1,20 @@
 pipeline:
+  name: CI-Python-Quickstart
+  identifier: pythonhelloworld
   projectIdentifier: krishikasingh
   orgIdentifier: default
   tags: {}
   properties:
     ci:
       codebase:
-        connectorRef: pysampleconnector
+        connectorRef: <+input>
         build: <+input>
+        depth: <+input>
+        prCloneStrategy: <+input>
   stages:
     - stage:
         name: build test and run
         identifier: build_test_and_run
-        description: ""
         type: CI
         spec:
           cloneCodebase: true
@@ -22,10 +25,12 @@ pipeline:
                   name: Code compile
                   identifier: Code_compile
                   spec:
-                    connectorRef: docker_Quickstart
+                    connectorRef: account.harnessImage
                     image: python:3.10.6-alpine
                     shell: Sh
-                    command: python -m compileall ./
+                    command: |-
+                      python3 -m venv venv
+                      python -m compileall ./
               - step:
                   type: Run
                   name: Create image
@@ -35,17 +40,15 @@ pipeline:
                     image: alpine
                     shell: Sh
                     command: |-
-                      echo <+stage.repeat.item>
-                      touch pythondockerfile_<+strategy.iteration>
-                      cat > pythondockerfile_<+strategy.iteration> <<- EOM
-                      FROM python:<+stage.repeat.item>
+                      touch pythondockerfile
+                      cat > pythondockerfile <<- EOM
+                      FROM python:3.10.6-alpine
                       WORKDIR /py-sample-proj
                       ADD . /py-sample-proj
                       RUN pip install -r requirements.txt
                       CMD ["python" , "app.py"]
                       EOM
-                      cat pythondockerfile_<+strategy.iteration>
-                  failureStrategies: []
+                      cat pythondockerfile
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push an image to docker registry
@@ -54,18 +57,11 @@ pipeline:
                     connectorRef: <+input>
                     repo: <+input>
                     tags:
-                      - <+stage.repeat.item>
-                    dockerfile: pythondockerfile_<+strategy.iteration>
+                      - latest
           infrastructure:
             type: KubernetesHosted
             spec:
               identifier: k8s-hosted-infra
-        strategy:
-          repeat:
-            items:
-              - 3.10.6-alpine
-              - 3.10.4-alpine
-          maxConcurrency: 2
     - stage:
         name: Integration test
         identifier: Integration_test
@@ -82,7 +78,7 @@ pipeline:
                   identifier: python_server
                   spec:
                     connectorRef: <+input>
-                    image: krishi0408/pythonsample:<+stage.repeat.item>
+                    image: <+input>
                     shell: Sh
                   description: "server connection "
                   failureStrategies: []
@@ -97,11 +93,3 @@ pipeline:
                     command: |-
                       sleep 10
                       curl localhost:5000
-        strategy:
-          repeat:
-            items:
-              - 3.10.6-alpine
-              - 3.10.4-alpine
-          maxConcurrency: 2
-  identifier: CIPythonQuickstart_Matrix
-  name: "CI-Python-Quickstart - Matrix "
