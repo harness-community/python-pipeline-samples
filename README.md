@@ -1,22 +1,20 @@
 # python-pipeline-samples
-**Before you begin **
-1. Make sure you go through Harness Key Concepts 
-https://docs.harness.io/article/hv2758ro4e-learn-harness-key-concepts
-https://docs.harness.io/article/len9gulvh1-harness-platform-architecture
-2. **GitHub account** -Make sure you have a github account . 
-https://docs.harness.io/article/kqik8km5eb-source-code-manager-settings#source-code-manager-settings
-3. **DockerHub Account**-Make sure to have a Docker-Hub Account.
-Other artifactory packages are also there :
-https://docs.harness.io/article/66ykcm0sf0-build-and-push-to-gcr-step-settings
+
+## Before you begin
+
+1. Make sure you go through Harness [Key Concepts](https://docs.harness.io/article/hv2758ro4e-learn-harness-key-concepts) & [Platform Architecture](https://docs.harness.io/article/len9gulvh1-harness-platform-architecture)
+2. GitHub account - Make sure you have a [github account](https://docs.harness.io/article/kqik8km5eb-source-code-manager-settings#source-code-manager-settings). 
+
+3. DockerHub Account - Make sure to have a [Docker-Hub Account](https://docs.harness.io/article/66ykcm0sf0-build-and-push-to-gcr-step-settings).
+
 4. **Kubernetes cluster.**
 https://docs.harness.io/article/sjjik49xww-kubernetes-cluster-connector-settings-reference
 5. **Harness delegate**
 https://docs.harness.io/article/f9bd10b3nj-install-a-kubernetes-delegate
 
-We will be using this repository as an example :
-https://github.com/harness-community/python-pipeline-samples.git
+We will be using [harness-community/python-pipeline-samples](https://github.com/harness-community/python-pipeline-samples.git) repository as an example.
   
-**Step 1:Create Project**
+## Step 1:Create Project
 
 1. In the Harness Platform click on Project and then New Project
     Name: (Name of your project)
@@ -104,6 +102,7 @@ Click on Pipelines and then on click on Create a Pipeline
 5. Copy and paste the Pipeline.yaml file and add below the pipeline settings :
 
 **Pipeline.yaml**
+```yaml
   tags: {}
   properties:
     ci:
@@ -194,6 +193,7 @@ Click on Pipelines and then on click on Create a Pipeline
                     command: |-
                       sleep 10
                       curl localhost:5000
+```
 
 6. Click on **Save** 
 7. Click on **Run **
@@ -224,5 +224,5 @@ After clicking on run you will see the following options to provide your inputs 
   
   <img width="1305" alt="Screenshot 2022-09-20 at 10 38 43 AM" src="https://user-images.githubusercontent.com/109092049/191172562-43f3e029-26e7-4bc4-a519-e5e54d5335f4.png">
 
-  Congrats you have successfully created your CI-pipeline. 
+  Yayy!! Congrats you have successfully created your CI-pipeline. 
   
