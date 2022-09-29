@@ -1,4 +1,4 @@
-### Integeration Testing 
+### Integration Testing 
 
 #### Python server
 Now you have a Stage to clone, build, containerize, and then push your image to Docker Hub. In this step you'll add a Stage to pull that image, run it       in a container, and run integration tests on it.
