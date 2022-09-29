@@ -21,7 +21,7 @@ TO DO:
 
 **[Tutorial](docs/CreatePipeline.md)**<br>
 **[Requirements](docs/requirements.md)**<br>
-**[Harness Sample YAML](https://github.com/harness-community/python-pipeline-samples/blob/main/.harness/input.yaml)**<br>
+**[Harness Sample YAML](.harness/Pipeline.yaml)**<br>
 **[Getting Started](#GettingStarted)**<br>
 **[Workflow](#Workflow)**<br>
 **[Build Instructions](docs/CreatePipeline.md)**<br>
