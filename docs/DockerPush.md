@@ -33,4 +33,4 @@
 
 Now we move to Integration Testing and running our Pipeline
 
-Click on **[Integration Test and Run Pipeline](docs/Integration.md)**
+Click on **[Integration Test and Run Pipeline](Integration.md)**
