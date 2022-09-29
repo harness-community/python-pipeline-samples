@@ -1,18 +1,18 @@
 ## Harness CI
 
-Harness Continuous Integration tool is built with test intelligence, native secrets, fine-grained RBAC, and extensible governance  as one of the best solutions in the marketplace for automated pipelines. Automated pipelines remove user errors, provide feedback loops to developers and helps enable fast product iterations.
+Harness Continuous Integration tool is built with test intelligence, native secrets, fine-grained RBAC, and extensible governance as one of the best solutions in the marketplace for automated pipelines. Automated pipelines remove user errors, provide feedback loops to developers, and help enable fast product iterations.
 
 ### What is a pipeline?
 
 A Pipeline is an end-to-end process that delivers a new version of your software. It can be considered to be a cyclical process that includes integration, delivery, operations, testing, deployment, real-time updates, and metrics monitoring.
 
 
-For example: A pipeline can use the CI module of Harness to build, test & push code and then also a CD module to deploy the artifact to the production environment.
+For example, A pipeline can use the CI module of Harness to build, test & push code and then also a CD module to deploy the artifact to the production environment.
 
 
 ### Stages in a Pipeline
 
-A CI Stage is a subset of a Pipeline that performs one major segment of the CI workflow. A Build Stage includes Steps for building, pushing, and testing your code. The first Stage in a Pipeline includes the default Codebase for the Pipeline and shares it with later stages.
+A CI Stage is a subset of a Pipeline that performs one major segment of the CI workflow. A Build Stage includes Steps for building, pushing, and testing your code. The first stage in a Pipeline includes the default Codebase for the Pipeline and shares it with later stages.
 
 See [CI Stage Settings](https://docs.harness.io/article/yn4x8vzw3q-ci-stage-settings)
 
@@ -21,7 +21,7 @@ See [CI Stage Settings](https://docs.harness.io/article/yn4x8vzw3q-ci-stage-sett
 
 A Stage contains one or more Steps. Each Step is a series of commands that perform a task. A Build and Push Step builds an image and pushes it to a cloud repo, a Run Step runs a series of shell commands, and so on.
 
-When a Pipeline runs, it creates a temporary volume called a Workspace. The Build Stage clones your codebase to the root of the Workspace and runs Steps inside the root. The Workspace persists for the lifetime of the Stage and enables individual Steps to communicate and share state information.
+When a Pipeline runs, it creates a temporary volume called a Workspace. The Build Stage clones your codebase to the root of the Workspace and runs Steps inside the root. The Workspace persists for the lifetime of the Stage and enables individual Steps to communicate and share the state information.
 
 Harness CI includes an extensive Step Library for common CI tasks: building artifacts, uploading to cloud repos, running tests, and so on.
 
@@ -31,21 +31,21 @@ Harness CI includes an extensive Step Library for common CI tasks: building arti
 
 ### Shared Path
 
-You can use Shared Paths in a Stage to share data across Steps. By default, all Steps in a Stage use the same Workspace to share data. By default, ```/harness``` is the shared working directory for a Stage. For example, the Maven m2 repo is stored in ```/root/.m2``` by default. You can specify this same path in later Stages.
+You can use Shared Paths in a Stage to share data across Steps. By default, all Steps in a Stage use the same Workspace to share data. By default, `/harness` is the shared working directory for a Stage. For example, the Maven m2 repo is stored in `/root/.m2` by default. You can specify this same path in later Stages.
 
 If you need to share additional volumes, you can add Shared Paths.
 
 
 ### Service Dependency
 
-A Service Dependency enables multiple Stages to access the same service. For example your Pipeline might include unit tests that require a running Redis server. Service Dependencies run in an isolated container so you don't need to handle dependencies. 
+A Service Dependency enables multiple Stages to access the same service. For example, your Pipeline might include unit tests that require a running Redis server. Service Dependencies run in an isolated container so you don't need to handle dependencies.
 
 See [Configure Service Dependency](https://docs.harness.io/article/vo4sjbd09g-configure-service-dependency-step-settings)
 
 
 ### Background Tasks
 
-This step allows running commands in the background. It can be used to spin up service dependencies as a part of the build.
+This step allows running commands in the background. It can spin up service dependencies as a part of the build.
 
 
 ### Matrix support
@@ -98,7 +98,7 @@ Connectors contain the information necessary to integrate and work with third-pa
 
 The Harness Delegate is a software service you install in your environment that connects to the Harness Manager and performs tasks using your container orchestration platforms, artifact repositories, monitoring systems, and so on.
 
-The Delegate also needs permissions in the target environment to execute build tasks. These permissions are granted in the Delegate config file or the environment account you use when installing the Delegate.
+The Delegate also needs permissions in the target environment to execute build tasks. These permissions are granted in the Delegate config file or your environment account when installing the Delegate.
 
 
 ### Variables
