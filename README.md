@@ -19,7 +19,7 @@ TO DO:
 
 ## Layout
 
-**[Tutorial](docs/tutorial.md)**<br>
+**[Tutorial](docs/CreatePipeline.md)**<br>
 **[Requirements](docs/requirements.md)**<br>
 **[Harness Sample YAML](https://github.com/harness-community/python-pipeline-samples/blob/main/.harness/input.yaml)**<br>
 **[Getting Started](#GettingStarted)**<br>
