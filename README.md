@@ -50,7 +50,7 @@ Here we have built a simple two-stage CI Pipeline in Harness. Setting up and run
 **[Pipeline Creation & Build Set-up](docs/CreatePipeline.md)**<br>
 **[Configuring the infrastructure & setting up Build & Run Unit Test stage](docs/build.md)**<br>
 **[Build & Push Image to Docker](docs/DockerPush.md)**<br>
-**[Create Integration Stage and Run the Pipeline](docs/Integeration.md)**<br>
+**[Create Integration Stage and Run the Pipeline](docs/Integration.md)**<br>
 
 ## Licensing
 
