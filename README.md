@@ -1,5 +1,7 @@
 # Python Sample Pipelines in Harness
 
+![Python Pipeline Samples](https://repobeats.axiom.co/api/embed/4b5f037eb19da59cb5a8357bd2507b6d591f09d2.svg "Python Pipeline Samples")
+
 Introduction
 ========================
 This repository is a home for snippets of YAML code and a sample hello world server for the Harness CI Community.
