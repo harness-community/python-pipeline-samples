@@ -6,19 +6,6 @@ Introduction
 ========================
 This repository is a home for snippets of YAML code and a sample hello world server for the Harness CI Community.
 
-## To Do
-
-TO DO:
-- [ ] Understanding the basics of Harness 
-- [ ] Requirements
-- [ ] Environment
-- [ ] Steps to use the samples on Harness App
-- [ ] Explain a bit on what the sample app does
-- [ ] Other useful links
-- [ ] License info
-- [ ] [Harness Community - Communication Guide](https://github.com/harness-community/overview/blob/main/community_communication_guide.rst)
-
-
 ## Layout
 
 **[Tutorial](docs/CreatePipeline.md)**<br>
