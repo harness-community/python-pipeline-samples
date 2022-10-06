@@ -1,21 +1,10 @@
 # Python Sample Pipelines in Harness
 
+![Python Pipeline Samples](https://repobeats.axiom.co/api/embed/4b5f037eb19da59cb5a8357bd2507b6d591f09d2.svg "Python Pipeline Samples")
+
 Introduction
 ========================
 This repository is a home for snippets of YAML code and a sample hello world server for the Harness CI Community.
-
-## To Do
-
-TO DO:
-- [ ] Understanding the basics of Harness 
-- [ ] Requirements
-- [ ] Environment
-- [ ] Steps to use the samples on Harness App
-- [ ] Explain a bit on what the sample app does
-- [ ] Other useful links
-- [ ] License info
-- [ ] [Harness Community - Communication Guide](https://github.com/harness-community/overview/blob/main/community_communication_guide.rst)
-
 
 ## Layout
 
@@ -48,7 +37,7 @@ Here we have built a simple two-stage CI Pipeline in Harness. Setting up and run
 **[Pipeline Creation & Build Set-up](docs/CreatePipeline.md)**<br>
 **[Configuring the infrastructure & setting up Build & Run Unit Test stage](docs/build.md)**<br>
 **[Build & Push Image to Docker](docs/DockerPush.md)**<br>
-**[Create Integration Stage and Run the Pipeline](docs/Integeration.md)**<br>
+**[Create Integration Stage and Run the Pipeline](docs/Integration.md)**<br>
 
 ## Licensing
 
