@@ -38,6 +38,20 @@ Here we have built a simple two-stage CI Pipeline in Harness. Setting up and run
 **[Build & Push Image to Docker](docs/DockerPush.md)**<br>
 **[Create Integration Stage and Run the Pipeline](docs/Integration.md)**<br>
 
-## Licensing
+## Contributor License Agreement
 
-MIT License
+In order to clarify the intellectual property license granted with Contributions from any person or entity, Harness Inc. ("Harness") must have a Contributor License Agreement ("CLA") on file that has been read, accepted, and followed by each contributor, indicating an agreement to the CLA terms located [here](https://github.com/harness-community/overview/blob/main/Contributor_License_Agreement.md). This license is for your protection as a Contributor as well as the protection of Harness; it does not change your rights to use your own Contributions for any other purpose.
+
+## Code of Conduct
+
+All users and contributors of the Harness community should adhere to the following [Code of Conduct](https://github.com/harness/community/blob/main/CODE_OF_CONDUCT.md)!
+
+## Communication
+
+Refer [Harness Community Communications Guide](https://github.com/harness-community/overview/blob/main/community_communication_guide.rst) to interact with the wider community users/contributors, join slack workgroups to get help/help other users and create topics in [community.harness.io](https://community.harness.io)
+
+## License
+
+MIT License. 
+
+See [COPYING](LICENSE) for more information.
