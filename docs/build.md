@@ -41,6 +41,8 @@ Click on Connect through Harness Delegate. [Check out more on Harness Delegate](
 
 To develop more understanding on Connectors [check out the docs here](overview.md)
 
+Go the Infrastructure settings of stage and click on `Hosted by Harness`.
+
 Then go to Execution (In this step we are going to compile the code)
 #### Code Compilation
 
