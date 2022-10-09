@@ -13,8 +13,8 @@
          touch pythondockerfile
          cat > pythondockerfile <<- EOM
          FROM python:3.10.6-alpine
-         WORKDIR /py-sample-proj
-         ADD . /py-sample-proj
+         WORKDIR /python-pipeline-samples
+         ADD . /python-pipeline-samples
          RUN pip install -r requirements.txt
          CMD ["python" , "app.py"]
          EOM
@@ -30,6 +30,8 @@
     - Docker connector: select the Docker connector you created previously 
     - Docker repository: `<docker-hub-username>/<docker-repository name>`
     - Tags: `latest`
+    - In the optional Configuration
+      - Dockerfile - ```pythondockerfile```
 
 Now we move to Integration Testing and running our Pipeline
 
