@@ -6,6 +6,7 @@
 
 - Configure the Stage Settings as below
   - Name: `build test and run`
+  - Make sure to turn on `clone codebase`.
 
 **Setup the Connector as follows**
 
@@ -31,13 +32,13 @@ Secret Name: `Git-Token`
 
 Secret  Value: PAT value generated in Github
 
-Click on Save 
+Click on Save.
 
 This will allow the repository to be fetched click on it and click `Apply Selected`
 
 Make Enable API access (ON) with the secret token created
 
-Click on Connect through Harness Delegate. [Check out more on Harness Delegate](https://docs.harness.io/article/sjjik49xww-kubernetes-cluster-connector-settings-reference)
+Click on Connect through Harness Platfrom. 
 
 To develop more understanding on Connectors [check out the docs here](overview.md)
 
@@ -60,15 +61,13 @@ Then go to Execution (In this step we are going to compile the code)
          - Username - Docker hub username 
          - Secret Token - [Check out how to create docker PAT](DockerPat.md)
        - Connect to Provider 
-         - Choose connect through harness delegate -> Select Harness delegate you created 
+         - Choose connect through harness platform
          - It will take sometime to verify your credentials.
   - Image: `python:3.10.6-alpine`
   - Shell: `Sh`
   - Command:
- 
-    `python3 -m venv venv`
-   
     `python -m compileall ./`
+    
   - Then click `Apply changes`
 
 Next we are going to create Image and Push the image to docker registry 
