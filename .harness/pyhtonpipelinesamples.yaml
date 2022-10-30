@@ -56,10 +56,12 @@ pipeline:
                     repo: <+input>
                     tags:
                       - latest
-          infrastructure:
-            type: KubernetesHosted
-            spec:
-              identifier: k8s-hosted-infra
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
     - stage:
         name: Integration test
         identifier: Integration_test
