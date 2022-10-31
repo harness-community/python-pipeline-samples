@@ -61,6 +61,7 @@ pipeline:
             spec:
               connectorRef: localcluster
               namespace: default
+              automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
     - stage:
