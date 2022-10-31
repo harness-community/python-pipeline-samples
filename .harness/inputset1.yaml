@@ -1,0 +1,56 @@
+inputSet:
+  identifier: "input"
+  pipeline:
+    identifier: "pyhtonpipelinesamples"
+    properties:
+      ci:
+        codebase:
+          build:
+            type: "branch"
+            spec:
+              branch: "main"
+          depth: 50
+          prCloneStrategy: "MergeCommit"
+    stages:
+    - stage:
+        identifier: "build_test_and_run"
+        type: "CI"
+        spec:
+          execution:
+            steps:
+            - step:
+                identifier: "Code_compile"
+                type: "Run"
+                spec:
+                  connectorRef: ""
+            - step:
+                identifier: "Create_dockerfile"
+                type: "Run"
+                spec:
+                  connectorRef: ""
+            - step:
+                identifier: "Build_and_Push_an_image_to_docker_registry"
+                type: "BuildAndPushDockerRegistry"
+                spec:
+                  connectorRef: ""
+                  repo: ""
+    - stage:
+        identifier: "Integration_test"
+        type: "CI"
+        spec:
+          execution:
+            steps:
+            - step:
+                identifier: "python_server"
+                type: "Background"
+                spec:
+                  connectorRef: ""
+                  image: ""
+            - step:
+                identifier: "test_connection_to_server"
+                type: "Run"
+                spec:
+                  connectorRef: ""
+  name: "input"
+  orgIdentifier: "default"
+  projectIdentifier: "krishikasingh"
