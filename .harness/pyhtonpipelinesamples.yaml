@@ -96,8 +96,3 @@ pipeline:
                     command: |-
                       sleep 10
                       curl localhost:5000
-            variables:
-              - name: container
-                type: String
-                description: ""
-                value: docker
