@@ -56,13 +56,12 @@ pipeline:
                     repo: <+input>
                     tags:
                       - latest
-          infrastructure:
-            type: KubernetesDirect
-            spec:
-              connectorRef: localcluster
-              namespace: default
-              nodeSelector: {}
-              os: Linux
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
     - stage:
         name: Integration test
         identifier: Integration_test
