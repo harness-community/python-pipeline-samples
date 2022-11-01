@@ -7,7 +7,7 @@ pipeline:
   properties:
     ci:
       codebase:
-        connectorRef: pythonsampleconnector
+        connectorRef: <+input>
         build: <+input>
         depth: <+input>
         prCloneStrategy: <+input>
