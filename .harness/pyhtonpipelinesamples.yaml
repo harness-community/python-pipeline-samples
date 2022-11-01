@@ -56,12 +56,13 @@ pipeline:
                     repo: <+input>
                     tags:
                       - latest
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: krishikacluster
+              namespace: harness-delegate-ng
+              nodeSelector: {}
+              os: Linux
     - stage:
         name: Integration test
         identifier: Integration_test
