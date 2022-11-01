@@ -38,7 +38,7 @@ This will allow the repository to be fetched click on it and click `Apply Select
 
 Make Enable API access (ON) with the secret token created
 
-Click on Connect through Harness Platfrom. 
+Click on **Connect through Harness Platform**.
 
 To develop more understanding on Connectors [check out the docs here](overview.md)
 
