@@ -89,7 +89,7 @@ pipeline:
                     connectorRef: <+input>
                     image: <+input>
                     shell: Sh
-                    command: python3 /python-pipeline-samples/app.py
+                    command: python3 ./app.py
               - step:
                   type: Run
                   name: "test connection to server "
