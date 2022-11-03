@@ -13,8 +13,6 @@
         type: CI
         spec:
           cloneCodebase: true
-          spec:
-          cloneCodebase: true
           infrastructure:
             type: KubernetesHosted
             spec:
