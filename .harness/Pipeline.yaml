@@ -2,7 +2,7 @@
   properties:
     ci:
       codebase:
-        connectorRef: pysampleconnector
+        connectorRef: <+input>
         build: <+input>
         depth: <+input>
         prCloneStrategy: <+input>
@@ -13,6 +13,10 @@
         type: CI
         spec:
           cloneCodebase: true
+          infrastructure:
+            type: KubernetesHosted
+            spec:
+              identifier: k8s-hosted-infra
           execution:
             steps:
               - step:
@@ -20,28 +24,26 @@
                   name: Code compile
                   identifier: Code_compile
                   spec:
-                    connectorRef: account.harnessImage
+                    connectorRef: <+input>
                     image: python:3.10.6-alpine
                     shell: Sh
-                    command: |-
-                      python3 -m venv venv
-                      python -m compileall ./
+                    command: python -m compileall ./
               - step:
                   type: Run
-                  name: Create image
-                  identifier: Create_image
+                  name: Create dockerfile
+                  identifier: Create_dockerfile
                   spec:
-                    connectorRef: docker_Quickstart
+                    connectorRef: <+input>
                     image: alpine
                     shell: Sh
                     command: |-
                       touch pythondockerfile
                       cat > pythondockerfile <<- EOM
                       FROM python:3.10.6-alpine
-                      WORKDIR /py-sample-proj
-                      ADD . /py-sample-proj
+                      WORKDIR /python-pipeline-sample
+                      ADD . /python-pipeline-sample
                       RUN pip install -r requirements.txt
-                      CMD ["python" , "app.py"]
+                      CMD ["python3" , "./app.py"]
                       EOM
                       cat pythondockerfile
               - step:
@@ -53,10 +55,13 @@
                     repo: <+input>
                     tags:
                       - latest
-          infrastructure:
-            type: KubernetesHosted
-            spec:
-              identifier: k8s-hosted-infra
+                    dockerfile: pythondockerfile
+                    optimize: true
+        variables:
+          - name: container
+            type: String
+            description: ""
+            value: docker
     - stage:
         name: Integration test
         identifier: Integration_test
@@ -75,8 +80,7 @@
                     connectorRef: <+input>
                     image: <+input>
                     shell: Sh
-                  description: "server connection "
-                  failureStrategies: []
+                    command: python3 ./app.py
               - step:
                   type: Run
                   name: "test connection to server "
