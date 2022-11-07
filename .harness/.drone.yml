@@ -1,0 +1,9 @@
+kind: pipeline
+name: python-pipeline-samples
+
+steps:
+- name: test
+  image: python:3.10.6-alpine
+  command: 
+  - python -m compileall ./ 
+  
