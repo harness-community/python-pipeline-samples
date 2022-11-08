@@ -24,6 +24,7 @@ Harness will pull the image onto the container in your infrastructure. Next, it 
           - Description(optional): ```server connection```
           - Container registry: select the Docker connector you created previously
           - Shell: ```Sh```
+          - Command: ```python3 /python-pipeline-samples/app.py```
           - Select ```Apply changes``` 
 #### Connecting to server
 Next, we can run an integration test. We'll simply test the connection to the server.

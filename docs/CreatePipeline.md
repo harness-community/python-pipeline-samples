@@ -1,6 +1,8 @@
 In this tutorial you will learn how you can seamlessly get started with Harness CI for ```Python```. In this pipeline we will be implementing a Hello World Server in `Python`.
-
-### Step 1: Create your Harness Project
+### Step 1: Fork the repository 
+- Go to [Python-Pipeline-Samples Repo](https://github.com/harness-community/python-pipeline-samples)
+- Now fork this repository in your Github [Forking a repository in Github](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+### Step 2: Create your Harness Project
 
 - Move to the Harness Platform & click on Project -> New Project
 - Configure the project settings as below
@@ -16,7 +18,7 @@ In this tutorial you will learn how you can seamlessly get started with Harness 
 - Select CI Module in the modules sections
 
 
-### Step 2: Pipeline Creation & Configure Stages
+### Step 3: Pipeline Creation & Configure Stages
 
 - Click on `Pipelines` -> Create a Pipeline 
 - Configure the pipeline as below
