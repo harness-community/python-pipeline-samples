@@ -61,7 +61,7 @@ Then go to Execution (In this step we are going to compile the code)
          - Username - Docker hub username 
          - Secret Token - [Check out how to create docker PAT](DockerPat.md)
        - Connect to Provider 
-         - Choose connect through harness platform
+         - Choose to connect through the Harness Platform
          - It will take sometime to verify your credentials.
   - Image: `python:3.10.6-alpine`
   - Shell: `Sh`
