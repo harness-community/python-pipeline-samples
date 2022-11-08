@@ -1,11 +1,11 @@
-##  Image Creation  
+##  DockerFile Creation  
  
  - Click on `Add step`
    - Go to builds and click on run 
    - Change the settings as following:
    
-      - Name: `create image`
-      - Container registry: Click on docker connecter created in the previous step 
+      - Name: `create Docker file`
+      - Container registry: Click on the Docker connecter created in the previous step 
       - Image: `alpine`
       - Commands: Copy the following command and click on apply changes.
  
