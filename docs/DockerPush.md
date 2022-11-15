@@ -21,6 +21,9 @@
          cat pythondockerfile
          ```
          
+      ## Point to ponder on: 
+      - If you head over to the location of **[requirements.txt](https://github.com/harness-community/python-pipeline-samples/blob/main/requirements.txt)** and see the contents of this text file, you will see that the multiline arguments are sorted in ascending         order. This is an optimization technique. This makes it easier to update and avoid duplicate packages. For more optimization techniques to make Pipeline run           faster, check out **[this document](https://docs.harness.io/article/g3m7pjq79y-optimizing-ci-build-times#optimize_docker_images_to_reduce_build_times)**
+         
       
  ## Build and Push Image to Docker Registry
  - Click on `Add step`
