@@ -79,7 +79,11 @@ Then go to Execution (In this step we are going to compile the code)
     
   - Then click `Apply changes`
 
-![Code Compilation_CI](Code Compilation_CI.png)
+
+
+![Code Compilation_CI](/Images/Code Compilation_CI.png)
+
+
 
 Next we are going to create Image and Push the image to docker registry 
 
