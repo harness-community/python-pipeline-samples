@@ -8,6 +8,10 @@
   - Name: `build test and run`
   - Make sure to turn on `clone codebase`.
 
+
+![configure_the_stage_setting](/Images/configure_the_stage_setting.png)
+
+
 **Setup the Connector as follows**
 
 Select `Connectors` -> Click on `+ New Connector`
