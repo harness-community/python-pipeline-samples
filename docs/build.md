@@ -48,6 +48,9 @@ To develop more understanding on Connectors [check out the docs here](overview.m
 
 Go the Infrastructure settings of stage and click on `Hosted by Harness`.
 
+![infrastructure setting(build test and run)](/Images/infrastructure setting(build test and run).png)
+
+
 Then go to Execution (In this step we are going to compile the code)
 #### Code Compilation
 
@@ -75,6 +78,8 @@ Then go to Execution (In this step we are going to compile the code)
     `python -m compileall ./`
     
   - Then click `Apply changes`
+
+![Code Compilation_CI](Code Compilation_CI.png)
 
 Next we are going to create Image and Push the image to docker registry 
 
