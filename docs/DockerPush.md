@@ -19,9 +19,11 @@
          CMD ["python" , "app.py"]
          EOM
          cat pythondockerfile
-         ```
-         
-      
+   
+   
+   ![create_dockerfile_step_step](/Images/create_dockerfile_step_step.png)    
+   
+   
  ## Build and Push Image to Docker Registry
  - Click on `Add step`
  - Go to `builds` and click on `build and push an image to docker registry`
@@ -32,6 +34,8 @@
     - Tags: `latest`
     - In the optional Configuration
       - Dockerfile - ```pythondockerfile```
+
+![build_and_push_image_to_docker](/Images/build_and_push_image_to_docker.png)   
 
 Now we move to Integration Testing and running our Pipeline
 
