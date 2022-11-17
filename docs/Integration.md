@@ -15,7 +15,8 @@ Now you have a Stage to clone, build, containerize, and then push your image to 
         - Click ```Next```
 In the Build Test and Push stage, you built your code and pushed your built image to Docker Hub.
 Harness will pull the image onto the container in your infrastructure. Next, it will start the Hello World Server in the image.
-Note:According to new flow and UI ```Propagate from an existing stage``` is already enabled.
+
+Note: According to new flow and UI **Propagate from an existing stage** is already enabled.
 
    - Go to execution tab in run integration stage 
        - Select ```add step``` 
