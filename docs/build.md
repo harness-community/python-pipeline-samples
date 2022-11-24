@@ -8,6 +8,10 @@
   - Name: `build test and run`
   - Make sure to turn on `clone codebase`.
 
+
+![configure_the_stage_setting](/Images/configure_the_stage_setting.png)
+
+
 **Setup the Connector as follows**
 
 Select `Connectors` -> Click on `+ New Connector`
@@ -45,6 +49,9 @@ To develop more understanding on Connectors [check out the docs here](overview.m
 Go the Infrastructure settings of stage and click on `Hosted by Harness`.
 
 Then go to Execution (In this step we are going to compile the code)
+
+![infrastructure_setting(build_test_and_run)](/Images/infrastructure_setting(build_test_and_run).png)
+
 #### Code Compilation
 
 - Click on `Add step`
@@ -71,6 +78,13 @@ Then go to Execution (In this step we are going to compile the code)
     `python -m compileall ./`
     
   - Then click `Apply changes`
+
+
+
+![Code_Compilation_CI](/Images/Code_Compilation_CI.png)
+
+
+
 
 Next we are going to create Image and Push the image to docker registry 
 
