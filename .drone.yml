@@ -35,7 +35,12 @@ type: docker
 name: integration test 
 
 steps:
-- name: np
-  image: alpine
+- name: python-server
+  image: krishi0408/pythonsample
   commands: 
-  - echo hello
+  - python3 ./app.py
+
+services:
+- name: python-services
+  image: krishi0408/pythonsample
+
