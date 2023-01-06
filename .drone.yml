@@ -50,3 +50,7 @@ services:
   -  sleep 10
      curl python-server:5000
 
+- name: run_done
+  image: alpine
+  commands:
+  - echo hello 
