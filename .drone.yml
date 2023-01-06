@@ -1,10 +1,15 @@
 kind: pipeline
 type: docker
-name: default
+name: build test and run 
 
 steps:
-- name: greeting
+- name: run 
+  image: python:3.10.6-alpine
+  commands: 
+  - python -m compileall ./
+  
+- name: en
   image: alpine
   commands:
-  - echo hello
-  - echo world
+  - echo hello world
+
