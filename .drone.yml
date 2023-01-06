@@ -29,3 +29,24 @@ steps:
     password: Krishika@123
     repo: krishi0408/pythonsample
     tags: latest
+---
+kind: pipeline
+type: docker
+name: integration test
+
+
+steps:
+- name: python-server
+  image: krishi0408/pythonsample
+  commands: 
+  -  python3 ./app.py
+  
+  services:
+   - name: python-service
+     image: krishi0408/pythonsample
+     
+ - name: test connection to server
+  image: curlimages/curl:7.73.0
+  commands: 
+  -  sleep 10
+     curl python_server:5000  
