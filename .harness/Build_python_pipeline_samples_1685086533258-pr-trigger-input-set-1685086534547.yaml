@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_python_pipeline_samples_1685086533258-pr-trigger-input-set
+  identifier: Build_python_pipeline_samples_1685086533258prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: pythondemo
+  pipeline:
+    identifier: Build_python_pipeline_samples_1685086533258
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
